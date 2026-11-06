@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Gullak — pocket money, played with</title>
+<meta name="description" content="Gullak teaches kids 7–12 to save, spend and share, one clay coin at a time.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Nunito:wght@400;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--mango:#F2A54A;--mint:#B4EAD0;--gum:#FFA9C5;--sky:#A9D5F8;--cream:#FAEFD6;--ink:#3B2E2A;--blue:#3F6DB0;
+--s1:.5rem;--s2:1rem;--s3:1.5rem;--s4:2.5rem;--s5:4rem;--s6:7rem;
+--clay:inset 7px 7px 12px rgba(255,255,255,.6),inset -9px -11px 18px rgba(90,55,20,.28),0 16px 24px -12px rgba(60,35,10,.55);
+--lit:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='c' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.035' numOctaves='4' seed='5'/%3E%3CfeDiffuseLighting surfaceScale='1.2' lighting-color='%23fff'%3E%3CfeDistantLight azimuth='225' elevation='72'/%3E%3C/feDiffuseLighting%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23c)'/%3E%3C/svg%3E");
+--grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2' seed='2'/%3E%3CfeColorMatrix values='0 0 0 0 .35 0 0 0 0 .2 0 0 0 0 .1 0 0 0 .35 0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23g)'/%3E%3C/svg%3E");
+--h:"Baloo 2","Nunito",sans-serif;color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{height:100%;scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;min-height:100%;color:var(--ink);font:400 clamp(1rem,.95rem + .3vw,1.2rem)/1.6 Nunito,"Baloo 2",sans-serif;overflow-x:hidden;background:#D9B785}
+body::before{content:"";position:fixed;inset:0;z-index:-1;will-change:transform;background:repeating-linear-gradient(180deg,rgba(120,70,25,.1) 0 1px,transparent 1px 9px),repeating-linear-gradient(180deg,rgba(255,255,255,.08) 0 3px,transparent 3px 23px),linear-gradient(180deg,#E6C899,#CFA672)}
+@media (prefers-reduced-motion:no-preference){html:not(.lenis){scroll-behavior:smooth}}
+html.lenis,html.lenis body{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!important}.lenis-stopped{overflow:hidden}
+h1,h2,h3,.h,.logo{font-family:var(--h);font-weight:800;line-height:1.02;margin:0;text-shadow:0 -1px 0 rgba(0,0,0,.35),0 2px 0 rgba(255,255,255,.4),2px 5px 7px rgba(60,35,10,.3)}
+h1{font-size:clamp(2.8rem,8vw,6.2rem);letter-spacing:-.01em}
+h2{font-size:clamp(2.2rem,5.4vw,4.2rem)}
+h3{font-size:clamp(1.4rem,2.4vw,1.9rem);line-height:1.1}
+p{margin:0 0 var(--s2)}a{color:inherit}
+:focus-visible{outline:4px solid var(--ink);outline-offset:4px;border-radius:12px}
+.w{width:min(1180px,100% - 2rem);margin-inline:auto}
+.slab{--p:var(--cream);position:relative;margin-block:var(--s3) var(--s5);padding-inline:var(--s5);border-radius:3.5rem;box-shadow:inset 0 0 0 8px rgba(255,255,255,.22),inset 14px 14px 26px rgba(255,255,255,.55),inset -16px -18px 30px rgba(90,55,20,.3),0 36px 50px -18px rgba(50,28,8,.65)}
+section{padding-block:var(--s5)}
+.btn{--p:var(--mango);display:inline-flex;align-items:center;gap:var(--s1);font:800 1.15rem var(--h);color:var(--ink);border:0;border-radius:99px;padding:.9rem 1.8rem;cursor:pointer;box-shadow:var(--clay);text-decoration:none;transition:transform .25s cubic-bezier(.3,1.8,.5,1)}
+.btn:hover{transform:scale(1.07,.94)}.btn:active{transform:scale(.94,1.06)}
+.rv{opacity:0;transform:translateY(28px) scale(.96);transition:opacity .7s,transform .8s cubic-bezier(.3,1.5,.5,1)}
+.rv.in{opacity:1;transform:none}
+header{display:flex;justify-content:space-between;align-items:center;padding-block:var(--s3) var(--s2)}
+.logo{font-size:2rem;display:flex;align-items:center;gap:var(--s1);text-decoration:none}
+.logo i{width:2rem;height:2rem;border-radius:50%;background:radial-gradient(circle at 32% 28%,#FFD79A,var(--mango));box-shadow:var(--clay)}
+#lang{--p:var(--blue);font:800 1rem var(--h);color:#fff;border:0;border-radius:99px;padding:.5rem 1.3rem;cursor:pointer;box-shadow:var(--clay)}
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:var(--s4);align-items:center;padding-top:var(--s4)}
+.hero h1 em{--p:var(--gum);font-style:normal;display:inline-block;border-radius:1.4rem;padding:0 .3em .05em;box-shadow:var(--clay)}
+.hero p.lead{font-size:clamp(1.1rem,1.5vw,1.4rem);max-width:34ch;margin-block:var(--s3)}
+.hint{display:block;margin-top:var(--s3);font-weight:700;opacity:.8}
+.stage{position:relative;justify-self:center;width:100%;max-width:520px}
+.pigwrap{position:relative;background:none;border:0;padding:0;cursor:pointer;width:100%}
+.pb{will-change:transform}.pigwrap svg{display:block;width:100%;height:auto;overflow:visible}.stage::before{content:"";position:absolute;left:14%;right:8%;bottom:8%;height:11%;border-radius:50%;background:rgba(60,35,10,.4);filter:blur(14px)}
+.pigwrap:hover .pb{animation:wob .9s ease-in-out infinite}
+@keyframes wob{0%,100%{transform:rotate(0)}25%{transform:rotate(-4deg) scale(1.03,.97)}75%{transform:rotate(4deg) scale(.97,1.03)}}
+.eye{transform-box:fill-box;transform-origin:center;animation:blink 4.2s infinite}
+@keyframes blink{0%,92%,100%{transform:scaleY(1)}95%{transform:scaleY(.08)}}
+.bub{position:absolute;top:-4%;left:8%;z-index:3;background:var(--cream);color:var(--ink);font:800 1.3rem var(--h);padding:.4rem 1.1rem;border-radius:99px;box-shadow:var(--clay);opacity:0;pointer-events:none}
+.dcoin,.face{background:radial-gradient(circle at 32% 28%,#DE9A78,#BB6C4C 55%,#8F4B34);box-shadow:inset 5px 5px 8px rgba(255,255,255,.38),inset -6px -8px 10px rgba(60,20,5,.45),0 12px 14px -8px rgba(40,20,5,.6)}
+.dcoin{position:absolute;z-index:2;display:grid;place-items:center;width:4.4rem;height:4.4rem;border-radius:50%;font:800 1.6rem var(--h);color:#3B1B0D;text-shadow:1px 1px 0 rgba(255,225,205,.55),-1px -1px 1px rgba(60,20,5,.5);pointer-events:none}
+.dcoin::after{content:"";position:absolute;inset:16%;border-radius:50%;box-shadow:inset 3px 3px 5px rgba(60,20,5,.4),inset -3px -3px 5px rgba(255,220,200,.4)}
+.d1{left:calc(48% - 2.2rem);top:-9%;animation:bob 2.4s ease-in-out infinite}
+.d2{left:2%;bottom:-6%;width:3.8rem;height:3.8rem;transform:rotate(-14deg)}.d3{right:0;bottom:-10%;width:4rem;height:4rem;transform:rotate(12deg)}
+@keyframes bob{0%,100%{transform:translateY(0) rotate(-6deg)}50%{transform:translateY(-12px) rotate(6deg)}}
+.game{--p:var(--mint);color:var(--ink);border-radius:3rem;padding:var(--s5) var(--s4);box-shadow:var(--clay)}
+.game .top{display:flex;justify-content:space-between;gap:var(--s3);flex-wrap:wrap;align-items:end;margin-bottom:var(--s4)}
+.game .top p{max-width:38ch;margin:0}
+#tray{display:flex;gap:var(--s3);justify-content:center;flex-wrap:wrap;min-height:6.5rem;padding:var(--s2);margin-bottom:var(--s4);background:rgba(60,35,10,.12);border-radius:3rem;box-shadow:inset 6px 6px 12px rgba(60,35,10,.25),inset -6px -6px 10px rgba(255,255,255,.5)}
+.coin{position:relative;z-index:1;width:5rem;height:5rem;display:grid;place-items:center;cursor:grab;touch-action:none;user-select:none;-webkit-user-select:none}
+.coin.lift{z-index:20;cursor:grabbing}
+.face{position:absolute;inset:0;border-radius:50%}
+.face::after{content:"";position:absolute;inset:16%;border-radius:50%;box-shadow:inset 3px 3px 5px rgba(60,20,5,.4),inset -3px -3px 5px rgba(255,220,200,.4)}
+.lbl{position:relative;font:800 1.4rem var(--h);color:#3B1B0D;text-shadow:1px 1px 0 rgba(255,225,205,.55),-1px -1px 1px rgba(60,20,5,.5);pointer-events:none}
+.jars{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s3)}
+.jar{position:relative;text-align:center}
+.lid{width:46%;height:1.3rem;margin:0 auto -.3rem;border-radius:99px 99px .4rem .4rem;background:var(--c);filter:brightness(.92);box-shadow:var(--clay);position:relative;z-index:2;transition:transform .3s cubic-bezier(.3,2,.5,1)}
+.glass{--p:rgba(255,248,232,.7);position:relative;height:clamp(9rem,22vw,13rem);margin-inline:auto;width:min(100%,12rem);border-radius:1.6rem 1.6rem 3.4rem 3.4rem;box-shadow:var(--clay);overflow:hidden;display:grid;place-items:center;transition:transform .3s cubic-bezier(.3,2,.5,1)}
+.liq{position:absolute;left:0;right:0;bottom:0;height:0;background:var(--c);box-shadow:inset 0 6px 8px rgba(255,255,255,.6);transition:height .7s cubic-bezier(.3,1.6,.5,1)}
+.cnt{position:relative;font:800 1.8rem var(--h)}
+.jar h3{margin-top:var(--s2)}.jar p{margin:0;font-weight:700}
+.jar.hot .glass{transform:scale(1.07,.96)}.jar.hot .lid{transform:translateY(-.8rem) rotate(-14deg)}
+.sp{position:absolute;left:50%;top:55%;width:.8rem;height:.8rem;margin:-.4rem;border-radius:50%;pointer-events:none;z-index:9}
+#msg{text-align:center;font-weight:800;margin:var(--s4) 0 0;min-height:1.6em}
+#again{margin:var(--s2) auto 0;display:flex}#again[hidden]{display:none}
+.steps{position:relative;display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s3);list-style:none;padding:0;margin:var(--s5) 0 0}
+.steps li{position:relative;z-index:1;color:var(--ink);padding:var(--s4) var(--s3);box-shadow:var(--clay)}
+.steps li:nth-child(1){--p:var(--mango);border-radius:3rem 3rem 3rem 1rem}
+.steps li:nth-child(2){--p:var(--sky);border-radius:2rem 4rem 2rem 4rem;margin-top:var(--s5)}
+.steps li:nth-child(3){--p:var(--gum);border-radius:4rem 2rem 4rem 2rem;margin-top:var(--s3)}
+.num{--p:var(--cream);display:grid;place-items:center;width:3.6rem;height:3.6rem;margin-bottom:var(--s2);border-radius:50%;font:800 1.8rem var(--h);box-shadow:var(--clay)}
+.trail{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.trail path{fill:none;stroke:var(--ink);stroke-width:5;stroke-linecap:round;stroke-dasharray:2 14;opacity:.5}
+.parent{--p:var(--sky);color:var(--ink);border-radius:3rem;padding:var(--s5) var(--s4);display:grid;grid-template-columns:1fr 1fr;gap:var(--s4);box-shadow:var(--clay)}
+.row{--p:var(--cream);display:flex;justify-content:space-between;align-items:center;gap:var(--s2);border-radius:2rem;padding:var(--s2) var(--s3);margin-bottom:var(--s2);box-shadow:var(--clay)}
+.row b{font-family:var(--h);font-size:1.2rem;display:block;line-height:1.2}.row small{font-size:.95rem}
+.sw{flex:none;width:4.4rem;height:2.4rem;border-radius:99px;border:0;background:#cdbfa8;box-shadow:inset 4px 4px 7px rgba(60,35,10,.35),inset -3px -3px 6px rgba(255,255,255,.7);position:relative;cursor:pointer;transition:background .3s}
+.sw::after{content:"";position:absolute;top:.3rem;left:.3rem;width:1.8rem;height:1.8rem;border-radius:50%;background:radial-gradient(circle at 32% 28%,#fff,#e9dcc3);box-shadow:var(--clay);transition:transform .35s cubic-bezier(.3,2,.5,1)}
+.sw[aria-checked=true]{background:var(--mint)}.sw[aria-checked=true]::after{transform:translateX(2rem)}
+.stories{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:var(--s3);margin-top:var(--s4);align-items:start}
+.st{color:var(--ink);border-radius:3rem;padding:var(--s3);box-shadow:var(--clay)}
+.st:nth-child(1){--p:var(--mint);padding-block:var(--s4)}
+.st:nth-child(2){--p:var(--mango);margin-top:var(--s4)}
+.st:nth-child(3){--p:var(--gum)}
+.st svg{width:5.5rem;height:5.5rem;margin-bottom:var(--s2)}
+.st h3{margin-bottom:var(--s1)}
+.dl{--p:var(--gum);display:grid;grid-template-columns:1.2fr .8fr;gap:var(--s4);align-items:center;color:var(--ink);border-radius:3rem;padding:var(--s5) var(--s4);box-shadow:var(--clay)}
+.dl .btn{--p:var(--cream);margin:0 var(--s1) var(--s1) 0}
+.phone{--p:var(--sky);justify-self:center;width:min(15rem,70%);aspect-ratio:9/17;border-radius:3rem;box-shadow:var(--clay);display:grid;align-content:center;justify-items:center;gap:var(--s2);transform:rotate(5deg)}
+.phone i{width:60%;height:3rem;border-radius:99px;background:var(--cream);box-shadow:var(--clay)}.phone i:nth-child(2){background:var(--mango);width:45%}.phone i:nth-child(3){background:var(--mint);width:52%}
+footer{padding-block:var(--s5);text-align:center;font-weight:700}
+#cur{position:fixed;left:0;top:0;width:28px;height:28px;border-radius:50%;background:radial-gradient(circle at 32% 28%,#FFD79A,var(--mango));box-shadow:var(--clay);pointer-events:none;z-index:99;opacity:0;transition:width .25s,height .25s,margin .25s,opacity .3s}
+#cur.big{width:56px;height:56px;margin:-14px 0 0 -14px;opacity:.55!important}
+.slab,.game,.parent,.dl,.st,.steps li,.phone,.row,.btn,#lang,.num,.glass,.hero h1 em{background:var(--lit),var(--grain),var(--p,var(--cream));background-size:300px,160px,auto;background-blend-mode:multiply,multiply,normal}
+
+.dent{position:absolute;width:2.6rem;height:3.4rem;margin:-1.7rem 0 0 -1.3rem;border-radius:50%;pointer-events:none;box-shadow:inset 4px 5px 8px rgba(60,35,10,.35),inset -3px -4px 6px rgba(255,255,255,.7);animation:dent 4.2s ease-out forwards}
+@keyframes dent{0%{transform:rotate(var(--r)) scale(.4);opacity:0}8%{transform:rotate(var(--r)) scale(1);opacity:1}70%{opacity:.9}100%{transform:rotate(var(--r)) scale(1.05);opacity:0}}
+.roll{left:0;top:0;width:3rem;height:3rem;font-size:1.2rem;z-index:0;will-change:transform}
+.plan{display:block}.plan input{display:block;width:100%;margin:.6rem 0;accent-color:#C9762A}.plan p{margin:0;font-weight:800}
+details{margin-top:var(--s2)}summary{cursor:pointer;font:800 1rem var(--h);display:inline-block;padding:.35rem 1rem;border-radius:99px;background:var(--cream);box-shadow:var(--clay);list-style:none;transition:transform .25s cubic-bezier(.3,1.8,.5,1)}
+summary::-webkit-details-marker{display:none}summary:hover{transform:scale(1.06,.94)}details[open] summary{transform:scale(.96)}
+details p{margin:var(--s1) 0 0;font-weight:700;animation:pop .4s cubic-bezier(.3,1.8,.5,1)}@keyframes pop{from{transform:scale(.8);opacity:0}}
+@media (max-width:860px){.roll{display:none}.hero,.parent,.dl{grid-template-columns:1fr}.steps,.stories{grid-template-columns:1fr}.jars{grid-template-columns:repeat(3,1fr);gap:var(--s1)}.trail{display:none}.steps li:nth-child(n){margin-top:0}.st:nth-child(2){margin-top:0}.slab{padding-inline:var(--s2);border-radius:2.4rem}.game,.parent,.dl{padding:var(--s4) var(--s2);border-radius:2.2rem}section{padding-block:var(--s5)}.jar p{display:none}.coin{width:4.2rem;height:4.2rem}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}.roll{display:none}}
+</style>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js" defer></script>
+</head>
+<body>
+<div id="cur" aria-hidden="true"></div>
+<div class="w slab">
+<header>
+  <a class="logo" href="#top"><i></i>Gullak</a>
+  <button id="lang" aria-pressed="false" aria-label="Switch language to Hindi">हिंदी</button>
+</header>
+
+<main id="top">
+<section class="hero" style="padding-block:var(--s4) var(--s6)">
+  <div>
+    <h1><span data-hi="पहला रुपया, बड़े-बड़े सपने।">Your first rupee has <em>big plans.</em></span></h1>
+    <p class="lead" data-hi="गुल्लक सात से बारह साल के बच्चों को बचाना, खर्चना और बाँटना सिखाती है — एक-एक सिक्के से।">Gullak teaches kids 7–12 to save, spend and share, one clay coin at a time.</p>
+    <a class="btn" href="#play">Play the jar game</a>
+    <span class="hint">Psst… the piggy is hungry. Give it a click.</span>
+  </div>
+  <div class="stage"><span class="dcoin d1" aria-hidden="true">₹</span><span class="dcoin d2" aria-hidden="true">₹</span><span class="dcoin d3" aria-hidden="true">₹</span>
+  <button class="pigwrap" id="pig" aria-label="Feed the piggy bank a coin">
+    <span class="bub" id="bub" aria-hidden="true">Nom!</span>
+    <div class="pb"><svg viewBox="0 0 340 270" role="img" aria-label="A clay piggy bank">
+      <defs>
+        <radialGradient id="pg" cx=".32" cy=".28" r=".9"><stop offset="0" stop-color="#FAB4CB"/><stop offset=".6" stop-color="#F29AB8"/><stop offset="1" stop-color="#D77999"/></radialGradient>
+        <radialGradient id="pd" cx=".3" cy=".25" r=".95"><stop offset="0" stop-color="#F6A3C0"/><stop offset="1" stop-color="#CC6C90"/></radialGradient>
+        <filter id="cl" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency=".05" numOctaves="4" seed="3" result="n"/><feDiffuseLighting in="n" surfaceScale="1.5" lighting-color="#fff" result="l"><feDistantLight azimuth="225" elevation="66"/></feDiffuseLighting><feComposite in="SourceGraphic" in2="l" operator="arithmetic" k1="1.08" k2="0" k3="0" k4="0" result="m"/><feComposite in="m" in2="SourceAlpha" operator="in"/></filter>
+      </defs>
+      <g filter="url(#cl)">
+        <rect x="88" y="182" width="54" height="64" rx="26" fill="url(#pd)"/><rect x="196" y="182" width="54" height="64" rx="26" fill="url(#pd)"/>
+        <path d="M46 128c-30 4-38-32-12-36 18-3 22 16 8 20-8 2-12-6-6-10" fill="none" stroke="#D77999" stroke-width="13" stroke-linecap="round"/>
+        <path d="M96 66L104 22L142 46Z" fill="url(#pd)" stroke="#E487A8" stroke-width="10" stroke-linejoin="round"/><path d="M106 52L109 36L124 46Z" fill="#C9648C" opacity=".6"/>
+        <path d="M198 46L236 18L246 66Z" fill="url(#pd)" stroke="#E487A8" stroke-width="10" stroke-linejoin="round"/><path d="M216 46L231 34L236 52Z" fill="#C9648C" opacity=".6"/>
+        <ellipse cx="165" cy="135" rx="135" ry="100" fill="url(#pg)"/>
+        <rect x="130" y="40" width="68" height="11" rx="5.5" fill="#9C3F69"/>
+        <ellipse cx="290" cy="148" rx="38" ry="32" fill="url(#pg)"/>
+        <ellipse cx="280" cy="144" rx="6" ry="9" fill="#A8486F"/><ellipse cx="302" cy="144" rx="6" ry="9" fill="#A8486F"/>
+      </g>
+      <ellipse cx="238" cy="150" rx="16" ry="11" fill="#F0827A" opacity=".85"/>
+      <g id="look"><g class="eye"><ellipse cx="236" cy="104" rx="10" ry="13" fill="#2A1F1C"/><circle cx="240" cy="99" r="3.6" fill="#fff"/></g></g>
+      <g id="pc" opacity="0"><circle cx="164" cy="20" r="18" fill="#BB6C4C"/><circle cx="164" cy="20" r="11" fill="none" stroke="#8F4B34" stroke-width="3"/></g>
+    </svg></div>
+  </button></div>
+</section>
+
+<section id="play" style="padding-block:0">
+  <div class="game rv">
+    <div class="top">
+      <h2 data-hi="जार भरो!">Feed the jars!</h2>
+      <p>Every coin needs a home. Drag it into Save, Spend or Share. On a keyboard? Focus a coin and press 1, 2 or 3.</p>
+    </div>
+    <div id="tray" aria-label="Coins"></div>
+    <div class="jars">
+      <div class="jar" data-jar="save" style="--c:var(--sky)"><div class="lid"></div><div class="glass"><i class="liq"></i><b class="cnt">₹0</b></div><h3>Save</h3><p>for the big thing</p></div>
+      <div class="jar" data-jar="spend" style="--c:var(--mango)"><div class="lid"></div><div class="glass"><i class="liq"></i><b class="cnt">₹0</b></div><h3>Spend</h3><p>for today’s treat</p></div>
+      <div class="jar" data-jar="share" style="--c:var(--gum)"><div class="lid"></div><div class="glass"><i class="liq"></i><b class="cnt">₹0</b></div><h3>Share</h3><p>for someone else</p></div>
+    </div>
+    <p id="msg" aria-live="polite"></p>
+    <button class="btn" id="again" type="button">Refill coins</button>
+  </div>
+</section>
+
+<section>
+  <h2 class="rv" data-hi="गुल्लक कैसे काम करती है">How Gullak works</h2>
+  <div style="position:relative">
+    <svg class="trail" viewBox="0 0 1000 300" preserveAspectRatio="none" aria-hidden="true"><path vector-effect="non-scaling-stroke" d="M170 110C320 20 380 250 500 230S720 40 830 170"/></svg><span class="dcoin roll" id="roll" aria-hidden="true">₹</span>
+    <ol class="steps">
+      <li class="rv"><div class="num">1</div><h3 data-hi="कमाओ">Earn</h3><p>Do a chore, win a coin. Your grown-up sets the jobs, you tap “Done!”, and a clay coin plops into your pocket.</p></li>
+      <li class="rv"><div class="num">2</div><h3 data-hi="बाँटो">Split</h3><p>Every coin picks a jar: Save, Spend or Share. You decide, and the jars wobble happily.</p></li>
+      <li class="rv"><div class="num">3</div><h3 data-hi="बढ़ाओ">Grow</h3><p>Watch Save fill toward your goal. Reach it and the piggy does a very silly dance.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section style="padding-block:0 var(--s6)">
+  <div class="parent rv">
+    <div>
+      <h2 data-hi="पेरेंट कॉर्नर">Parent corner</h2>
+      <p style="margin-top:var(--s3)">Gullak runs on pretend coins, so nothing real ever moves. It simply gives you and your child one shared language for pocket-money talks. No ads, no chat with strangers, no tricks.</p>
+    </div>
+    <div>
+      <div class="row"><div><b>Approve every spend</b><small>You get a tap-to-say-yes.</small></div><button class="sw" role="switch" aria-checked="true" aria-label="Approve every spend"></button></div>
+      <div class="row"><div><b>Weekly coin day</b><small>Sundays, 10 a.m.</small></div><button class="sw" role="switch" aria-checked="false" aria-label="Weekly coin day"></button></div>
+      <div class="row"><div><b>Goal: a red bicycle</b><small>Reminder at halfway.</small></div><button class="sw" role="switch" aria-checked="true" aria-label="Goal reminder"></button></div>
+      <div class="row plan"><div><b>Goal planner</b><small>Goal ₹<output id="gv">4500</output> · saving ₹<output id="wv">150</output> a week</small><input id="goal" type="range" min="500" max="10000" step="100" value="4500" aria-label="Goal price in rupees"><input id="wk" type="range" min="20" max="1000" step="10" value="150" aria-label="Weekly saving in rupees"><p id="plan" aria-live="polite"></p></div></div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <h2 class="rv" data-hi="छोटी-छोटी कहानियाँ">Tiny money stories</h2>
+  <div class="stories">
+    <article class="st rv">
+      <svg viewBox="0 0 80 80" aria-hidden="true"><circle cx="20" cy="54" r="14" fill="none" stroke="#3A2748" stroke-width="5"/><circle cx="60" cy="54" r="14" fill="none" stroke="#3A2748" stroke-width="5"/><path d="M20 54l16-28h18l6 28M36 26l10 28" fill="none" stroke="#3A2748" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <h3>Aarav and the Bicycle Jar</h3>
+      <p>Aarav wanted a red cycle that cost ₹4,500. He fed Save every Sunday until the jar clinked when he walked. In March, it clinked all the way to the shop.</p><details><summary>What did they learn?</summary><p>A goal with a price tag is easier to save for than a wish.</p></details>
+    </article>
+    <article class="st rv">
+      <svg viewBox="0 0 80 80" aria-hidden="true"><path d="M8 50h64c0 16-14 24-32 24S8 66 8 50z" fill="#3A2748"/><path d="M40 12c10 12 10 22 0 30-10-8-10-18 0-30z" fill="#FF9EC4" stroke="#3A2748" stroke-width="4" stroke-linejoin="round"/></svg>
+      <h3>Meher’s Diwali Share</h3>
+      <p>Meher had ₹60 in Share. She bought diyas for the watchman uncle’s little room. Her pocket felt lighter. Her chest felt warmer.</p><details><summary>What did they learn?</summary><p>Giving feels good, and it costs less than you think.</p></details>
+    </article>
+    <article class="st rv">
+      <svg viewBox="0 0 80 80" aria-hidden="true"><path d="M24 36h32L40 74z" fill="#3A2748"/><circle cx="40" cy="26" r="18" fill="#8FE3C0" stroke="#3A2748" stroke-width="4"/></svg>
+      <h3>Kabir’s Oops Day</h3>
+      <p>Kabir spent every coin on one giant ice-cream and had none left for a cricket ball. Now he splits first, licks later.</p><details><summary>What did they learn?</summary><p>Split first, spend later, and the cricket ball is always there.</p></details>
+    </article>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="dl rv">
+    <div>
+      <h2 data-hi="माँ-पापा के फ़ोन पर गुल्लक लाओ">Bring Gullak to a grown-up’s phone</h2>
+      <p style="margin:var(--s3) 0">The piggy is warming up for Diwali. Pick your store and wave hello.</p>
+      <a class="btn" href="#">App Store</a><a class="btn" href="#">Google Play</a>
+    </div>
+    <div class="phone" aria-hidden="true"><i></i><i></i><i></i></div>
+  </div>
+</section>
+</main>
+<footer>Made with clay, coins and a lot of giggles. © Gullak</footer>
+</div>
+
+<script>
+const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
+const RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+/* language */
+let hi=false;$$('[data-hi]').forEach(e=>e.dataset.en=e.textContent);
+$('#lang').onclick=e=>{hi=!hi;$$('[data-hi]').forEach(n=>n.textContent=hi?n.dataset.hi:n.dataset.en);document.documentElement.lang=hi?'hi':'en';const b=e.currentTarget;b.setAttribute('aria-pressed',hi);b.textContent=hi?'English':'हिंदी';b.setAttribute('aria-label',hi?'Switch language to English':'Switch language to Hindi')};
+/* reveals */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.15});
+$$('.rv').forEach((e,i)=>{e.style.transitionDelay=(i%3)*90+'ms';io.observe(e)});
+/* cursor + eyes */
+const look=$('#look'),pigEl=$('#pig');let mx=0,my=0,qe=false;
+function eyes(){qe=false;const r=pigEl.getBoundingClientRect(),dx=mx-(r.left+r.width*.7),dy=my-(r.top+r.height*.4),d=Math.hypot(dx,dy)||1,k=Math.min(d,300)/300*5;look.style.transform=`translate(${dx/d*k}px,${dy/d*k}px)`}
+addEventListener('pointermove',e=>{mx=e.clientX;my=e.clientY;if(!RM&&!qe){qe=true;requestAnimationFrame(eyes)}},{passive:true});
+if(matchMedia('(pointer:fine)').matches&&!RM){const c=$('#cur');let x=0,y=0,tx=0,ty=0,go=false;
+ const f=()=>{x+=(tx-x)*.2;y+=(ty-y)*.2;c.style.transform=`translate(${x-14}px,${y-14}px)`;if(Math.abs(tx-x)+Math.abs(ty-y)>.4)requestAnimationFrame(f);else go=false};
+ addEventListener('pointermove',e=>{tx=e.clientX;ty=e.clientY;c.style.opacity=1;c.classList.toggle('big',!!e.target.closest('a,button,.coin,summary'));if(!go){go=true;requestAnimationFrame(f)}},{passive:true})}
+/* thumbprints in the clay */
+const slab=$('.slab');slab.addEventListener('pointerdown',e=>{if(e.target.closest('a,button,.coin,.jar,input,summary,details'))return;const r=slab.getBoundingClientRect(),d=document.createElement('i');d.className='dent';d.style.left=e.clientX-r.left+'px';d.style.top=e.clientY-r.top+'px';d.style.setProperty('--r',(Math.random()*50-25)+'deg');slab.append(d);const all=$$('.dent',slab);if(all.length>14)all[0].remove();setTimeout(()=>d.remove(),4300)});
+/* coin that rolls down the path as you scroll */
+const trail=$('.trail path'),roll=$('#roll'),tw=trail.parentElement;
+if(!RM){const L=trail.getTotalLength();let pend=false;const upd=()=>{pend=false;const r=tw.getBoundingClientRect(),t=Math.min(1,Math.max(0,(innerHeight*.75-r.top)/(r.height+innerHeight*.3))),q=trail.getPointAtLength(t*L);roll.style.transform=`translate(${q.x/1000*r.width-24}px,${q.y/300*r.height-24}px) rotate(${t*900}deg)`};
+ addEventListener('scroll',()=>{if(!pend){pend=true;requestAnimationFrame(upd)}},{passive:true});upd()}
+/* goal planner */
+const g=$('#goal'),w=$('#wk');function plan(){$('#gv').textContent=(+g.value).toLocaleString('en-IN');$('#wv').textContent=w.value;const n=Math.ceil(g.value/w.value);$('#plan').textContent=n+(n>1?' weeks':' week')+' to the goal'+(n>=9?' (about '+Math.round(n/4.3)+' months)':'')+'.'}
+g.oninput=w.oninput=plan;plan();
+/* smooth scroll */
+addEventListener('load',()=>{if(window.Lenis&&!RM){const l=new Lenis({lerp:.1});const raf=t=>{l.raf(t);requestAnimationFrame(raf)};requestAnimationFrame(raf);$$('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{const t=$(a.getAttribute('href'));if(t){e.preventDefault();l.scrollTo(t)}}))}});
+/* audio pop */
+let ac;function blip(){try{ac=ac||new(window.AudioContext||webkitAudioContext)();const t=ac.currentTime,o=ac.createOscillator(),g=ac.createGain();o.frequency.setValueAtTime(380,t);o.frequency.exponentialRampToValueAtTime(920,t+.09);g.gain.setValueAtTime(.12,t);g.gain.exponentialRampToValueAtTime(.001,t+.16);o.connect(g).connect(ac.destination);o.start(t);o.stop(t+.17)}catch(e){}}
+/* piggy */
+let swallowed=0;const words=['Nom!','Gulp!','More, please!','Tasty rupee!'];
+$('#pig').onclick=()=>{swallowed++;blip();const svg=$('#pig .pb'),b=$('#bub');
+$('#pc').animate([{opacity:1,transform:'translateY(-60px)'},{opacity:1,transform:'translateY(22px)'},{opacity:0,transform:'translateY(30px) scale(.6)'}],{duration:650,easing:'ease-in'});
+svg.animate([{transform:'scale(1)'},{transform:'scale(1.1,.88)',offset:.5},{transform:'scale(.95,1.07)',offset:.75},{transform:'scale(1)'}],{duration:600,delay:450,easing:'ease-out'});
+b.textContent=words[swallowed%4];b.animate([{opacity:0,transform:'translateY(10px) scale(.6)'},{opacity:1,transform:'none',offset:.2},{opacity:1,offset:.8},{opacity:0}],{duration:1400,delay:600,fill:'backwards'}).onfinish=()=>b.style.opacity=0};
+/* parent switches */
+$$('.sw').forEach(b=>b.onclick=()=>b.setAttribute('aria-checked',b.getAttribute('aria-checked')!=='true'));
+/* coin game */
+const tray=$('#tray'),msg=$('#msg'),jars=$$('.jar'),vals=[5,10,10,20,5],tot={};let coins=[],left=0,run=false;
+function kick(){if(!run){run=true;requestAnimationFrame(tick)}}
+function tick(){let m=false;coins.forEach(c=>{
+ if(RM){c.x=c.tx;c.y=c.ty;c.vx=c.vy=0}else{c.vx=(c.vx+(c.tx-c.x)*.16)*.76;c.vy=(c.vy+(c.ty-c.y)*.16)*.76;c.x+=c.vx;c.y+=c.vy}
+ const sp=Math.hypot(c.vx,c.vy),s=Math.min(sp*.03,.32),L=c.drag?1.12:1;
+ c.el.style.transform=`translate(${c.x}px,${c.y}px)`;
+ c.face.style.transform=`rotate(${Math.atan2(c.vy,c.vx)}rad) scale(${(1+s)*L},${(1-s*.7)*L})`;
+ if(sp>.05||Math.abs(c.tx-c.x)>.3||Math.abs(c.ty-c.y)>.3)m=true});
+ if(m)requestAnimationFrame(tick);else run=false}
+const jarAt=(x,y)=>jars.find(j=>{const r=j.getBoundingClientRect();return x>r.left-12&&x<r.right+12&&y>r.top-12&&y<r.bottom+12});
+const hot=(x,y)=>{const h=x<0?null:jarAt(x,y);jars.forEach(j=>j.classList.toggle('hot',j===h))};
+function bind(c){let sx,sy,ox,oy;
+ c.el.onpointerdown=e=>{if(c.done)return;c.el.setPointerCapture(e.pointerId);c.drag=true;sx=e.clientX;sy=e.clientY;ox=c.tx;oy=c.ty;c.el.classList.add('lift');kick()};
+ c.el.onpointermove=e=>{if(!c.drag)return;c.tx=ox+e.clientX-sx;c.ty=oy+e.clientY-sy;hot(e.clientX,e.clientY);kick()};
+ const up=e=>{if(!c.drag)return;c.drag=false;c.el.classList.remove('lift');const j=jarAt(e.clientX,e.clientY);hot(-1,-1);if(j)drop(c,j);else{c.tx=c.ty=0;kick()}};
+ c.el.onpointerup=up;c.el.onpointercancel=up;
+ c.el.onkeydown=e=>{const j=jars[+e.key-1];if(j&&!c.done){e.preventDefault();drop(c,j)}}}
+function drop(c,j){c.done=true;const a=c.el.getBoundingClientRect(),b=$('.glass',j).getBoundingClientRect();
+ c.tx=c.x+(b.left+b.width/2)-(a.left+a.width/2);c.ty=c.y+(b.top+b.height/2)-(a.top+a.height/2);kick();
+ setTimeout(()=>{c.el.style.opacity=0;c.el.style.pointerEvents='none';c.el.tabIndex=-1;pop(j,c.v)},RM?0:230)}
+function pop(j,v){const k=j.dataset.jar;tot[k]+=v;$('.liq',j).style.height=Math.min(100,tot[k]/30*100)+'%';$('.cnt',j).textContent='₹'+tot[k];blip();msg.textContent={save:'Future you says thanks.',spend:'Yum! Gone in one gulp.',share:'Somebody is smiling right now.'}[k];
+ $('.liq',j).style.height=Math.min(100,tot[k]/30*100)+'%';$('.cnt',j).textContent='₹'+tot[k];
+ j.animate([{transform:'scale(1)'},{transform:'scale(1.16,.82)',offset:.3},{transform:'scale(.93,1.1)',offset:.6},{transform:'scale(1)'}],{duration:480,easing:'ease-out'});
+ if(!RM)for(let i=0;i<9;i++){const s=document.createElement('s');s.className='sp';s.style.background=['#FFB547','#FF9EC4','#8CCBFF','#fff'][i%4];j.append(s);const a=i/9*6.283;
+  s.animate([{transform:'translate(0,0) scale(1)',opacity:1},{transform:`translate(${Math.cos(a)*80}px,${Math.sin(a)*80}px) scale(0)`,opacity:0}],{duration:650,easing:'cubic-bezier(.2,.8,.3,1)'}).onfinish=()=>s.remove()}
+ if(--left===0){msg.textContent=`All coins home! Save ₹${tot.save} · Spend ₹${tot.spend} · Share ₹${tot.share}. ${tot.save>=tot.spend&&tot.share>0?'Lovely balance, the piggy is proud.':'Every split teaches something. Try another mix!'}`;$('#again').hidden=false}}
+function spawn(){tray.innerHTML='';coins=[];left=vals.length;jars.forEach(j=>{tot[j.dataset.jar]=0;$('.liq',j).style.height='0%';$('.cnt',j).textContent='₹0'});
+ msg.textContent='Pick up a coin. Choose wisely!';
+ vals.forEach(v=>{const el=document.createElement('div');el.className='coin';el.tabIndex=0;el.setAttribute('role','button');el.setAttribute('aria-label',`₹${v} coin. Drag to a jar, or press 1 for Save, 2 for Spend, 3 for Share.`);
+  el.innerHTML=`<i class="face"></i><b class="lbl">₹${v}</b>`;tray.append(el);
+  const c={el,face:$('.face',el),x:0,y:0,vx:0,vy:0,tx:0,ty:0,drag:false,done:false,v};coins.push(c);bind(c)})}
+$('#again').onclick=spawn;spawn();
+</script>
+</body>
+</html>
