@@ -1,7 +1,7 @@
 # Gullak — pocket money, played with
 
 Gullak teaches kids aged 7–12 to **save, spend and share**, one clay coin at a time. It is a single-page, claymorphism-styled website with an interactive jar game, a parent corner and short money stories.
-something
+
 ![Gullak hero](screenshots/01-hero.png)
 
 ## Features
